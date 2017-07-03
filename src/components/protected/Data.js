@@ -1,8 +1,13 @@
-import React, { Component } from 'react'
-import { ref, firebaseAuth } from '../../config/constants'
+import { ref } from '../../config/constants'
 
-export function testingDataStuff () {
-	var userRef = ref.child('users');
-	var userInfoRef = userRef.child('info');
-  console.log(ref);
+export function getUsers () {
+	var users = {};
+	var userRef = ref.child('future');
+		userRef.on("child_added", function(snapshot) {
+			users = snapshot.val().artist;
+			console.log("Artist Name: " + users);
+			return users;			
+		}, function (error) {
+			console.log("Error: " + error.code);
+		});
 }
