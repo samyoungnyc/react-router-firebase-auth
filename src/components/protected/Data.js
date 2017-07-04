@@ -1,6 +1,6 @@
 import { ref } from '../../config/constants'
 
-export function getUsers () {
+export function getData () {
 	var talentItems = [];
 	var talentRef = ref.child('future');
 		talentRef.once("value", function(snapshot) {
@@ -13,10 +13,11 @@ export function getUsers () {
 			};
 				talentItems.push({data})
 			})
-			console.log(JSON.stringify(talentItems));
 			console.log(talentItems[0].data.artist);
-			return talentItems;
+			// return talentItems;
 		}, function (error) {
 			console.log("Error: " + error.code);
 		});
+		// console.log(talentItems);
+		return talentItems;
 }
