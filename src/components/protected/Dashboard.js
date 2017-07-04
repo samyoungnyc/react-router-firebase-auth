@@ -5,7 +5,6 @@ export default class Dashboard extends Component {
   render () {
     console.log("RENDERING FIRST");
     getUsers();
-    
     // constructor() {
     //   super();
     //   this.state = {
